@@ -1,0 +1,118 @@
+{
+  "_readme": "MoJing 表单控件模板片段（脱敏）。复制对应片段到 onl_form_head.html_json 的 list[] 中，替换 model/key/table 为你的字段。说明见 references/form-design.md 与 references/relation-select.md。",
+  "hidden_input": {
+    "type": "input",
+    "label": "",
+    "labelHTML": "",
+    "icon": "icon-write",
+    "options": {
+      "width": "100%",
+      "hidden": true,
+      "display": true,
+      "disabled": false,
+      "maxLength": 36,
+      "placeholder": "",
+      "clearable": true,
+      "labelCol": { "span": 4 },
+      "isCustomLabelCol": false,
+      "linkConfig": { "formCode": "", "listCode": "", "dataId": "", "openType": "router" }
+    },
+    "table": "{{TABLE_NAME}}",
+    "model": "project_id",
+    "cusClass": [],
+    "key": "input_project_id",
+    "rules": [ { "required": true, "message": "必填项" } ],
+    "events": {}
+  },
+  "relation_select_multi": {
+    "type": "relationSelect",
+    "label": "",
+    "customCom": true,
+    "labelHTML": "",
+    "icon": "icon-ai-code",
+    "component": {
+      "name": "modalSelect",
+      "inject": { "$form": { "from": "$form", "default": null } },
+      "components": {
+        "OnlListPageRenderModel": {
+          "name": "OnlListPageRenderModel",
+          "components": {
+            "listBuild": {
+              "name": "ListBuild",
+              "props": { "onlListHeadId": { "default": "" }, "height": { "default": "calc(100vh - 104px)" }, "width": { "default": "100%" } },
+              "computed": {}, "methods": {}, "staticRenderFns": [], "_compiled": true, "_scopeId": "data-v-b99ff6e0", "_Ctor": {}
+            }
+          },
+          "props": { "multiple": { "default": false }, "selectRows": {}, "relationComp": { "default": true }, "isBatchAdd": { "default": false } },
+          "methods": {}, "staticRenderFns": [], "_compiled": true, "_scopeId": "data-v-a079f2f2", "_Ctor": {}
+        }
+      },
+      "props": { "isEdit": { "type": null }, "dataJson": { "type": null }, "relationSaveField": { "type": null }, "disabled": { "type": null }, "value": { "type": null }, "record": { "type": null } },
+      "watch": { "dataJson": { "deep": true, "user": true }, "value": { "immediate": true, "user": true } },
+      "computed": {}, "methods": {}, "staticRenderFns": [], "_compiled": true, "_scopeId": "data-v-dab3e98a", "_Ctor": {}
+    },
+    "options": {
+      "defaultValue": null,
+      "multiple": true,
+      "disabled": false,
+      "hidden": false,
+      "width": "100%",
+      "clearable": true,
+      "placeholder": "请选择{{UNIT_NAME_1}}等",
+      "isCc": false,
+      "labelCol": { "span": 4 },
+      "isCustomLabelCol": false,
+      "pageCode": "{{LIST_CODE}}",
+      "pageName": "选择{{UNIT_NAME_1}}",
+      "listId": "{{LIST_HEAD_ID}}",
+      "listKey": "list_1791295797156",
+      "comeParam": "{}",
+      "tableName": "",
+      "isMainTable": true,
+      "backFillFields": [ { "pageField": "", "formField": "" } ],
+      "allowEdit": false,
+      "linkConfig": { "formCode": "", "listCode": "", "dataId": "", "openType": "router" },
+      "saveField": "id",
+      "showField": "name",
+      "showSelectList": true
+    },
+    "model": "publish_org_id",
+    "key": "relationSelect_xxx",
+    "rules": [ { "required": false, "message": "必填项" } ],
+    "events": {},
+    "table": "{{TABLE_NAME}}"
+  },
+  "batch_subform": {
+    "type": "batch",
+    "label": "整改进展情况",
+    "labelHTML": "",
+    "icon": "icon-table",
+    "options": {
+      "width": "100%",
+      "lineNums": 1,
+      "disabled": false,
+      "labelCol": { "span": 4 },
+      "isCustomLabelCol": false,
+      "linkConfig": { "formCode": "", "listCode": "", "dataId": "", "openType": "router" }
+    },
+    "list": [
+      { "type": "input", "label": "当前进展", "options": { "width": "100%", "disabled": false, "placeholder": "", "labelCol": { "span": 4 }, "isCustomLabelCol": false, "linkConfig": { "formCode": "", "listCode": "", "dataId": "", "openType": "router" } }, "model": "current_progress", "key": "col_progress", "table": "{{TABLE_NAME}}", "rules": [], "events": {} }
+    ],
+    "table": "{{TABLE_NAME}}",
+    "model": "{{TABLE_NAME}}",
+    "key": "batch_progress_records",
+    "cusClass": [],
+    "rules": [],
+    "events": {}
+  },
+  "btn_block": {
+    "type": "btnBlock",
+    "label": "按钮容器",
+    "key": "btnBlock_main",
+    "list": [
+      { "type": "button", "label": "确认提交", "key": "button_submit", "options": { "type": "primary", "handle": "submit", "hidden": false, "disabled": false, "editShow": true, "viewShow": true, "size": "default" } },
+      { "type": "button", "label": "返回", "key": "button_close", "options": { "type": "default", "handle": "close", "hidden": false, "disabled": false, "editShow": true, "viewShow": true, "size": "default" } }
+    ],
+    "options": { "hidden": false, "float": true }
+  }
+}
